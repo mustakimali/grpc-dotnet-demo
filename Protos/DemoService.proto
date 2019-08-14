@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package GrpcDotNetDemoPackage;
+
+service DemoService {
+    rpc SayHello(HelloRequest) returns (HelloResponse);
+    
+    rpc SayHelloToNobody(google.protobuf.Empty) returns (HelloResponse);
+}
+
+message HelloRequest {
+    string Name = 1;
+}
+
+message HelloResponse {
+    string Hello = 1;
+}
